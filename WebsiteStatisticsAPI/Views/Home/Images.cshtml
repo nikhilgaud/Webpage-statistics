@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "Images";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/client")     @*This is our js file containing my custom code*@
+
+</head>
+<body>
+    <div class="jumbotron">
+        <p class="lead">Enter website URL to retrieve images and most frequently used words..</p>
+        <form class="form-inline" id="urlForm">
+            <div class="form-group mx-sm-3 mb-2">
+                <input type="url" class="form-control" id="urlText" placeholder="https://example.com" required>                
+            </div>
+            <button type="submit" class="btn btn-primary mb-2" id="submitButton" value="Submit">Submit</button>
+            <label id="errorMessage" class="noerror">Something went wrong! Please try again.</label>
+        </form>
+    </div>
+    <div id="divForImages" class="jumbotron" style="display: none">
+        <p class="lead">Here are the images retrieved from this web page.. </p>
+        <div id="ImageCarousel" class="carousel slide">
+            @*<ol class="carousel-indicators"></ol>*@
+            <div class="carousel-inner"></div>
+        </div>
+    </div>
+    <div id="divForWords" class="jumbotron" style="display: none"></div>
+    <div id="divForGraph" class="jumbotron" style="padding:50px; display: none"></div>
+</body>
